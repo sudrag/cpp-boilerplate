@@ -8,12 +8,9 @@
 #include"PID.hpp"
 int main() {
   PID obj1;
-  int numSteps = 1000;
-  float curr_vel = 1.0;
-  float des_vel = 5.0;
-  for (int i = 0; i < numSteps; i++) {
-    curr_vel = obj1.controller(des_vel, curr_vel);
-  }
-  std::cout << "The final velocity is:" << curr_vel;
+  double curr_vel = 1.0;
+  double des_vel = 10.0;
+  double final_vel = obj1.final_vel(des_vel, curr_vel);
+  std::cout << "The final velocity is:" << final_vel;
   std::cout << "\nThe desired velocity was:" << des_vel;
 }

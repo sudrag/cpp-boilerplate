@@ -11,6 +11,7 @@
 
 #pragma once
 #include <iostream>
+#include <vector>
 
 /**
  * @brief      Pid controller's class
@@ -25,6 +26,7 @@ class PID {
   double error_prev = 0.0;
   double integral = 0;
   int steps = settling_time / dt;
+  std::vector<int> siz;
 
  public:
   double dt = 0.001;

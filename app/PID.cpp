@@ -38,7 +38,12 @@ double PID::controller(double des_vel, double curr_vel) {
  */
 double PID::final_vel(double des_vel, double curr_vel) {
   PID obj;
-  for (int i = 0; i < steps; i++)
+  auto j = 0;
+  while (j < 200) {
+    siz.push_back(1);
+    j++;
+  }
+  for (int i : siz)
     curr_vel = controller(des_vel, curr_vel);
   return curr_vel;
 }
