@@ -26,7 +26,11 @@ PID::~PID() {
  * @return     returns the corrected velocity
  */
 double PID::controller(double des_vel, double curr_vel) {
-  return 1;
+  float e = des_vel - curr_vel;
+  float d_response = Kd*(e - error_prev)/dt;
+  integral += Ki*e*dt;
+  error_prev = e;
+  return curr_vel + (Kp*e + d_response + integral);
 }
 /**
  * @brief      Computes the final velocity after settling time has lapsed
